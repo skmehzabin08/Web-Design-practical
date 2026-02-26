@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weekly Class Timetable</title>
+    <style>
+        table { 
+            border-collapse: collapse; 
+            width: 80%; 
+            margin: auto; 
+        }
+        th, td { 
+            border: 1px solid black; 
+            padding: 8px; 
+            text-align: center; 
+        }
+        thead { 
+            background-color: green;   /* Header in department color */
+            color: white; 
+        }
+        caption { 
+            font-weight: bold; 
+            font-size: 22px; 
+            margin: 10px; 
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <caption>Weekly Class Timetable</caption>
+
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th>9:00 - 10:00</th>
+            <td>Mathematics</td>
+            <td>English</td>
+            <td>Science</td>
+            <td>Social Science</td>
+            <td>Mathematics</td>
+            <td>Computer Science</td>
+        </tr>
+        <tr>
+            <th>10:00 - 11:00</th>
+            <td>English</td>
+            <td>Science</td>
+            <td>Mathematics</td>
+            <td>Computer Science</td>
+            <td>English</td>
+            <td>Physical Education</td>
+        </tr>
+        <tr>
+            <th>11:00 - 11:30</th>
+            <td colspan="6" style="background-color: #ffcc66; font-weight: bold;">Tea Break</td>
+        </tr>
+        <tr>
+            <th>11:30 - 12:30</th>
+            <td>Science</td>
+            <td>Social Science</td>
+            <td>English</td>
+            <td>Mathematics</td>
+            <td>Science</td>
+            <td>Mathematics</td>
+        </tr>
+        <tr>
+            <th>12:30 - 1:30</th>
+            <td>Social Science</td>
+            <td>Mathematics</td>
+            <td>Computer Science</td>
+            <td>English</td>
+            <td>Social Science</td>
+            <td>Science</td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="7">Total Working Days: 6 | Periods per Day: 4 (excluding break)</td>
+        </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>
