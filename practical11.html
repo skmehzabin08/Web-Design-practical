@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 APIs Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+
+        h1, h2 {
+            color: #800000;
+        }
+
+        /* Drag Box */
+        #dragBox {
+            width: 120px;
+            padding: 10px;
+            background-color: #800000;
+            color: white;
+            text-align: center;
+            cursor: grab;
+            border-radius: 8px;
+        }
+
+        /* Drop Box */
+        #dropBox {
+            width: 220px;
+            height: 130px;
+            border: 2px dashed #800000;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* Inputs */
+        input {
+            padding: 6px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Buttons */
+        button {
+            padding: 8px 12px;
+            margin-top: 8px;
+            background-color: #800000;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a00000;
+        }
+
+        a {
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML5 APIs Demonstration</h1>
+
+    <!-- Drag & Drop -->
+    <h2>1. Drag and Drop API</h2>
+
+    <div id="dragBox" draggable="true" ondragstart="drag(event)">
+        Drag me
+    </div>
+
+    <div id="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Drop here
+    </div>
+
+    <!-- Location -->
+    <h2>2. Location (Nagpur)</h2>
+
+    <button onclick="getLocation()">Show My Location</button>
+    <p id="location"></p>
+
+    <!-- Web Storage -->
+    <h2>3. Web Storage API (localStorage)</h2>
+
+    <input type="text" id="username" placeholder="Enter your name">
+    <br>
+
+    <button onclick="saveName()">Save Name</button>
+    <button onclick="loadName()">Load Name</button>
+
+    <p id="storedName"></p>
+
+    <script>
+        /* Drag & Drop */
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            let data = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(data));
+        }
+
+        /* Fixed Location (Nagpur) */
+        function getLocation() {
+            let lat = 21.1458;
+            let lon = 79.0882;
+
+            document.getElementById("location").innerHTML =
+                "Location: HB Colony, Namdeo Nagar, Binaki<br>" +
+                "Plot No. 155, Nagpur, Maharashtra<br>" +
+                "Latitude: " + lat +
+                "<br>Longitude: " + lon +
+                "<br><a href='https://www.google.com/maps?q=" + lat + "," + lon + "' target='_blank'>View on Map</a>";
+        }
+
+        /* Auto load location */
+        window.onload = getLocation;
+
+        /* Web Storage */
+        function saveName() {
+            let name = document.getElementById("username").value;
+            localStorage.setItem("userName", name);
+            alert("Name saved!");
+        }
+
+        function loadName() {
+            let storedName = localStorage.getItem("userName");
+            document.getElementById("storedName").innerHTML =
+                storedName ? "Stored Name: " + storedName : "No name found";
+        }
+    </script>
+
+</body>
+</html>
